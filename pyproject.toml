@@ -1,0 +1,32 @@
+[project]
+name = "awe-tuning-parsing"
+version = "0.1.0"
+description = "parsing websites"
+readme = "README.md"
+authors = [
+    { name = "Serhii Khyzhniak" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "curl-cffi>=0.16.0",
+    "openpyxl>=3.1.5",
+    "pydantic>=2.13.4",
+    "pydantic-settings>=2.15.0",
+    "rich>=15.0.0",
+    "selectolax>=0.4.11",
+    "tenacity>=9.1.4",
+    "typer>=0.27.1",
+]
+
+[project.scripts]
+awe-tuning-parsing = "awe_tuning_parsing:main"
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+    "pytest-asyncio>=1.4.0",
+]
