@@ -19,8 +19,9 @@ from dataclasses import dataclass, field
 
 from selectolax.parser import HTMLParser
 
+from core.http_client import Client
+
 from .description import html_to_text
-from .http_client import Client
 
 log = logging.getLogger(__name__)
 

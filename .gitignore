@@ -18,3 +18,7 @@ data/*
 
 # Logs
 logs/
+
+# botasaurus browser-automation artifacts (cache/profiles, may contain cookies)
+output/
+.botasaurus/

@@ -9,8 +9,9 @@ from rich.progress import Progress
 
 from .categories import fetch_categories
 from .compatibility import build_variant_fitment, fetch_compatibility_table
+from core.http_client import Client
+
 from .config import settings
-from .http_client import Client
 from .models import Category, Product, ProductRow, Variant
 from .product_page import ProductPageData, fetch_product_page
 from .products import build_product, iter_all_products, iter_collection_products
@@ -62,7 +63,7 @@ async def run(category_filter: set[str] | None = None) -> list[Product]:
     lock = asyncio.Lock()
     excluded_handles = settings.excluded_categories - (category_filter or set())
 
-    async with Client() as client:
+    async with Client(settings) as client:
         categories = await fetch_categories(client)
         if category_filter:
             categories = [c for c in categories if c.handle in category_filter]
@@ -198,7 +199,7 @@ async def enrich_and_explode(products: list[Product]) -> list[ProductRow]:
     and its fitment table, then explode it into one ProductRow per variant."""
     rows: list[ProductRow] = []
 
-    async with Client() as client:
+    async with Client(settings) as client:
         with Progress() as progress:
             task_id = progress.add_task("Fetching product pages & fitment...", total=len(products))
             await asyncio.gather(

@@ -8,6 +8,7 @@ authors = [
 ]
 requires-python = ">=3.11"
 dependencies = [
+    "botasaurus>=4.0.97",
     "curl-cffi>=0.16.0",
     "openpyxl>=3.1.5",
     "pydantic>=2.13.4",
@@ -19,7 +20,7 @@ dependencies = [
 ]
 
 [project.scripts]
-awe-tuning-parsing = "awe_tuning_parsing:main"
+awe-tuning-parsing = "core:main"
 
 [build-system]
 requires = ["uv_build>=0.12.3,<0.13.0"]
