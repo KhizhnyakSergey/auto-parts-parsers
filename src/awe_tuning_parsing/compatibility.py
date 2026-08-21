@@ -24,7 +24,7 @@ from dataclasses import dataclass
 
 from selectolax.parser import HTMLParser
 
-from .http_client import Client
+from core.http_client import Client
 
 log = logging.getLogger(__name__)
 

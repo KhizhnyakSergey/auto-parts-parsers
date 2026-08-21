@@ -12,8 +12,9 @@ from urllib.parse import urljoin, urlparse
 
 from selectolax.parser import HTMLParser
 
+from core.http_client import Client
+
 from .config import settings
-from .http_client import Client
 from .models import Category
 
 log = logging.getLogger(__name__)

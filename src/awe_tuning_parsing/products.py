@@ -4,9 +4,10 @@ from __future__ import annotations
 import logging
 from typing import Any, AsyncIterator
 
+from core.http_client import Client
+
 from .config import settings
 from .description import html_to_text
-from .http_client import Client
 from .models import Image, Product, Variant
 
 log = logging.getLogger(__name__)
